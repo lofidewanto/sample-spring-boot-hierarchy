@@ -3,6 +3,8 @@ Demonstration of Spring Boot Application Context Hierarchy Feature
 
 Article: https://dzone.com/articles/spring-boot-and-application-context-hierarchy
 
+Similar article: https://www.baeldung.com/spring-boot-context-hierarchy
+
 Call the controllers:
 - Child1: http://localhost:8080/myname
 - Child2: http://localhost:8081/myname

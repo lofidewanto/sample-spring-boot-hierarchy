@@ -18,7 +18,7 @@ public class MainApplication {
 				.child(ChildContext1.class).sibling(ChildContext2.class);
 
 		ConfigurableApplicationContext applicationContext = appBuilder.run();
-		applicationContext.setId("exampleHierarchy");
+		applicationContext.setId("childContext2");
 
 		for (String bdn : applicationContext.getBeanDefinitionNames()) {
 			logger.info("applicationContext bdn = " + bdn);
@@ -26,7 +26,7 @@ public class MainApplication {
 
 		ConfigurableApplicationContext parentApplicationContext = (ConfigurableApplicationContext) applicationContext
 				.getParent();
-		parentApplicationContext.setId("rootExampleHierarchy");
+		parentApplicationContext.setId("rootContext");
 
 		for (String bdn : parentApplicationContext.getBeanDefinitionNames()) {
 			logger.info("parentApplicationContext bdn = " + bdn);
