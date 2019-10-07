@@ -18,12 +18,18 @@ public class MainApplication {
 				.child(ChildContext1.class).sibling(ChildContext2.class);
 
 		ConfigurableApplicationContext applicationContext = appBuilder.run();
-		applicationContext.setId("child2");
-
-		((ConfigurableApplicationContext) applicationContext.getParent()).setId("root");
+		applicationContext.setId("exampleHierarchy");
 
 		for (String bdn : applicationContext.getBeanDefinitionNames()) {
-			logger.info("bdn = " + bdn);
+			logger.info("applicationContext bdn = " + bdn);
+		}
+
+		ConfigurableApplicationContext parentApplicationContext = (ConfigurableApplicationContext) applicationContext
+				.getParent();
+		parentApplicationContext.setId("rootExampleHierarchy");
+
+		for (String bdn : parentApplicationContext.getBeanDefinitionNames()) {
+			logger.info("parentApplicationContext bdn = " + bdn);
 		}
 	}
 }

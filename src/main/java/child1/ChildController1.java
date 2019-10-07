@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ChildController {
+public class ChildController1 {
 
 	@Value("${spring.application.name:notset}")
 	private String applicationName;

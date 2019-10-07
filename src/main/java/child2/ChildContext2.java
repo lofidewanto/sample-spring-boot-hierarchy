@@ -12,7 +12,7 @@ import root.RootBean;
 public class ChildContext2 {
 
 	@Bean
-	public ChildBean2 childBean(RootBean rootBean, @Value("${root.property}") String someProperty) {
+	public ChildBean2 childBean2(RootBean rootBean, @Value("${root.property}") String someProperty) {
 		return new ChildBean2(rootBean, someProperty);
 	}
 }
