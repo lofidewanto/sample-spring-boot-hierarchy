@@ -14,17 +14,25 @@ public class MainApplication {
 	private static final Logger logger = LoggerFactory.getLogger(MainApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplicationBuilder appBuilder = new SpringApplicationBuilder().parent(RootContext.class)
-				.child(ChildContext1.class).sibling(ChildContext2.class);
+		SpringApplicationBuilder appBuilder1 = new SpringApplicationBuilder().parent(RootContext.class)
+				.child(ChildContext1.class);
+		SpringApplicationBuilder appBuilder2 = appBuilder1.sibling(ChildContext2.class);
 
-		ConfigurableApplicationContext applicationContext = appBuilder.run();
-		applicationContext.setId("childContext2");
+		ConfigurableApplicationContext childApplicationContext2 = appBuilder2.run();
+		childApplicationContext2.setId("childContext2");
 
-		for (String bdn : applicationContext.getBeanDefinitionNames()) {
-			logger.info("applicationContext bdn = " + bdn);
+		ConfigurableApplicationContext childApplicationContext1 = appBuilder1.context();
+		childApplicationContext1.setId("childContext1");
+
+		for (String bdn : childApplicationContext1.getBeanDefinitionNames()) {
+			logger.info("childApplicationContext1 bdn = " + bdn);
 		}
 
-		ConfigurableApplicationContext parentApplicationContext = (ConfigurableApplicationContext) applicationContext
+		for (String bdn : childApplicationContext2.getBeanDefinitionNames()) {
+			logger.info("childApplicationContext2 bdn = " + bdn);
+		}
+
+		ConfigurableApplicationContext parentApplicationContext = (ConfigurableApplicationContext) childApplicationContext2
 				.getParent();
 		parentApplicationContext.setId("rootContext");
 

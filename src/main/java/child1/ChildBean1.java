@@ -17,6 +17,7 @@ public class ChildBean1 {
 	}
 
 	public RootBean getRootBean() {
+		logger.info("childBean1");
 		return rootBean;
 	}
 
