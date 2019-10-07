@@ -8,8 +8,8 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(name = "rootPropertySource", value = "classpath:/root.properties")
 public class RootContext {
 
-    @Bean
-    public RootBean rootBean() {
-        return new RootBean();
-    }
+	@Bean
+	public RootBean rootBean() {
+		return new RootBean();
+	}
 }

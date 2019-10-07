@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ChildController {
 
-    @Value("${spring.application.name:notset}")
-    private String applicationName;
+	@Value("${spring.application.name:notset}")
+	private String applicationName;
 
-    @RequestMapping("/myname")
-    public String myName() {
-        return this.applicationName;
-    }
+	@RequestMapping("/myname")
+	public String myName() {
+		return this.applicationName;
+	}
 }
